@@ -116,59 +116,78 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black">
-      <header className="absolute top-0 left-0 right-0 z-10 bg-black/50 backdrop-blur-sm border-b border-wme-gold/20">
+    <div className="min-h-screen bg-gradient-to-b from-wme-light-gray to-white">
+      <header className="absolute top-0 left-0 right-0 z-20 bg-transparent">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-wme-gold rounded-lg flex items-center justify-center">
-                <Star className="w-6 h-6 text-black" />
-              </div>
+            <div className="flex items-center gap-4">
+              <img
+                src="https://dsqvyt2qb7cgs.cloudfront.net/app/uploads/2025/01/wme-og.webp"
+                alt="WME"
+                className="h-10 w-auto object-contain"
+              />
               <div>
-                <h1 className="text-xl font-bold text-white">WME</h1>
-                <p className="text-xs text-wme-gold">Client Portal</p>
+                <h1 className="text-lg font-display tracking-tight">WME</h1>
+                <p className="text-xs text-muted-foreground">Client Portal</p>
               </div>
             </div>
-            <div className="hidden md:flex items-center space-x-6 text-sm text-gray-300">
-              <span className="flex items-center gap-2">
-                <Shield className="w-4 h-4 text-wme-gold" />
-                Secure Access
-              </span>
-              <span className="flex items-center gap-2">
-                <Globe className="w-4 h-4 text-wme-gold" />
-                Global Network
-              </span>
-            </div>
+
+            <nav className="hidden md:flex items-center gap-6 text-sm text-muted-foreground">
+              <Link to="/terms" className="hover:text-wme-gold">
+                Terms
+              </Link>
+              <Link to="/privacy" className="hover:text-wme-gold">
+                Privacy
+              </Link>
+              <Link
+                to="/dashboard"
+                className="text-sm px-3 py-1 rounded-md bg-wme-gold text-black font-semibold"
+              >
+                Client Login
+              </Link>
+            </nav>
           </div>
         </div>
       </header>
 
-      <div className="flex items-center justify-center min-h-screen">
+      <main className="flex items-center justify-center min-h-screen pt-24">
         <div className="w-full max-w-2xl p-6">
-          <Card>
-            <CardHeader>
-              <CardTitle>Access Your Client Portal</CardTitle>
-            </CardHeader>
-            <CardContent>
+          <Card className="shadow-2xl rounded-2xl overflow-hidden">
+            <div className="p-8 bg-gradient-to-r from-white via-wme-light-gray to-white">
+              <div className="flex items-start justify-between mb-6">
+                <div>
+                  <h2 className="text-3xl font-display font-bold">
+                    Access Your Client Portal
+                  </h2>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    Secure access to event bookings, invoices and personal
+                    details.
+                  </p>
+                </div>
+                <div className="hidden sm:flex items-center gap-3">
+                  <Star className="w-6 h-6 text-wme-gold" />
+                </div>
+              </div>
+
               {showSuccess && (
-                <div className="p-4 bg-green-800/30 border border-green-700 rounded mb-4">
-                  <p className="text-green-200 text-sm">
+                <div className="p-4 bg-green-50 border border-green-200 rounded mb-4">
+                  <p className="text-green-700 text-sm">
                     Your email was verified successfully.
                   </p>
                 </div>
               )}
 
               <Tabs defaultValue="login" className="w-full">
-                <TabsList className="grid w-full grid-cols-2 bg-black/20">
+                <TabsList className="grid w-full grid-cols-2 bg-transparent border-b border-gray-200">
                   <TabsTrigger
                     value="login"
-                    className="data-[state=active]:bg-wme-gold data-[state=active]:text-black"
+                    className="data-[state=active]:text-wme-gold data-[state=active]:border-b-2 data-[state=active]:border-wme-gold"
                   >
                     Client Access
                   </TabsTrigger>
                   <TabsTrigger
                     value="booking"
-                    className="data-[state=active]:bg-wme-gold data-[state=active]:text-black"
+                    className="data-[state=active]:text-wme-gold data-[state=active]:border-b-2 data-[state=active]:border-wme-gold"
                   >
                     New Booking
                   </TabsTrigger>
@@ -177,7 +196,10 @@ export default function Index() {
                 <TabsContent value="login" className="space-y-4">
                   <form onSubmit={handleLogin} className="space-y-4">
                     <div className="space-y-2">
-                      <Label htmlFor="bookingId" className="text-gray-200">
+                      <Label
+                        htmlFor="bookingId"
+                        className="text-muted-foreground"
+                      >
                         Booking ID
                       </Label>
                       <div className="relative">
@@ -195,7 +217,7 @@ export default function Index() {
                               setError("");
                             }
                           }}
-                          className="bg-black/20 border-gray-600 text-white placeholder:text-gray-400 focus:border-wme-gold pl-10"
+                          className="bg-white border-gray-200 text-gray-900 placeholder:text-gray-400 focus:border-wme-gold pl-10"
                           maxLength={8}
                           required
                         />
@@ -204,8 +226,8 @@ export default function Index() {
                     </div>
 
                     {error && (
-                      <div className="p-3 bg-red-500/10 border border-red-500/20 rounded-lg">
-                        <p className="text-red-400 text-sm">{error}</p>
+                      <div className="p-3 bg-red-50 border border-red-100 rounded-lg">
+                        <p className="text-red-600 text-sm">{error}</p>
                       </div>
                     )}
 
@@ -228,24 +250,24 @@ export default function Index() {
                 </TabsContent>
 
                 <TabsContent value="booking">
-                  <div className="text-sm text-gray-300">
+                  <div className="text-sm text-muted-foreground">
                     New booking flow coming soon.
                   </div>
                 </TabsContent>
               </Tabs>
 
               <div className="text-center mt-6">
-                <p className="text-xs text-gray-400">
+                <p className="text-xs text-muted-foreground">
                   By accessing your account, you agree to our{" "}
                   <Link to="/terms" className="text-wme-gold hover:underline">
                     Terms of Service
                   </Link>
                 </p>
               </div>
-            </CardContent>
+            </div>
           </Card>
         </div>
-      </div>
+      </main>
     </div>
   );
 }
