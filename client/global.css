@@ -3,112 +3,64 @@
 @tailwind utilities;
 
 @layer base {
-  /**
-   * Tailwind CSS theme
-   * tailwind.config.ts expects the following color variables to be expressed as HSL values.
-   * A different format will require also updating the theme in tailwind.config.ts.
-  */
   :root {
-    --background: 0 0% 98%;
-    --foreground: 0 0% 3.9%;
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
+    --radius: 0.75rem;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
-
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-
-    --accent: 45 100% 51%;
-    --accent-foreground: 0 0% 9%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
-
-    --radius: 0.5rem;
-
-    /* WME Brand Colors */
     --wme-gold: 45 100% 51%;
     --wme-black: 0 0% 0%;
     --wme-gray: 0 0% 51%;
     --wme-light-gray: 0 0% 96%;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
-  .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
+  html {
+    font-size: 16px; /* base mobile size */
+  }
 
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-
-    --accent: 45 100% 51%;
-    --accent-foreground: 0 0% 9%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
-
-    /* WME Brand Colors - Dark Mode */
-    --wme-gold: 45 100% 51%;
-    --wme-black: 0 0% 0%;
-    --wme-gray: 0 0% 63.9%;
-    --wme-light-gray: 0 0% 14.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+  @media (min-width: 768px) {
+    html { font-size: 17px; }
   }
 
   body {
+    font-family: var(--font-sans, Soehne, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial);
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .font-display { font-family: Rework Display, Soehne, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif; }
+
+  /* Form controls larger on mobile for comfortable tap targets */
+  input, textarea, select, button {
+    min-height: 44px;
+    touch-action: manipulation;
+  }
+
+  /* Elevated card styles */
+  .card-elevated { box-shadow: 0 8px 32px rgba(2,6,23,0.08); border-radius: 1rem; }
+
+  /* Accessible focus ring */
+  :focus {
+    outline: none;
+  }
+  :focus-visible {
+    box-shadow: 0 0 0 4px rgba(99,102,241,0.12);
+    border-radius: 0.5rem;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center w-full rounded-lg px-4 py-3 text-base font-semibold bg-wme-gold text-wme-black;
+  }
+
+  .form-input {
+    @apply w-full rounded-lg border border-gray-200 px-4 py-3 bg-white text-gray-900;
   }
 }
