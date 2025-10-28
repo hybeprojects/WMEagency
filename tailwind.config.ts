@@ -28,25 +28,8 @@ export default {
         8: "2rem",
       },
       fontFamily: {
-        display: [
-          "Rework Display",
-          "Soehne",
-          "system-ui",
-          "-apple-system",
-          "Segoe UI",
-          "Roboto",
-          "Arial",
-          "sans-serif",
-        ],
-        sans: [
-          "Soehne",
-          "system-ui",
-          "-apple-system",
-          "Segoe UI",
-          "Roboto",
-          "Arial",
-          "sans-serif",
-        ],
+        display: ["var(--font-display)"],
+        sans: ["var(--font-sans)"],
       },
       boxShadow: {
         "premium-sm": "0 6px 18px rgba(15, 23, 42, 0.06)",
