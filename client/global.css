@@ -84,10 +84,24 @@
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center justify-center w-full rounded-lg px-4 py-3 text-base font-semibold bg-wme-gold text-wme-black;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-radius: var(--radius);
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    font-size: 1rem;
+    background-color: hsl(var(--wme-gold));
+    color: hsl(var(--wme-black));
   }
 
   .form-input {
-    @apply w-full rounded-lg border border-gray-200 px-4 py-3 bg-white text-gray-900;
+    width: 100%;
+    border-radius: var(--radius);
+    border: 1px solid rgba(0,0,0,0.06);
+    padding: 0.75rem 1rem;
+    background-color: white;
+    color: #111827; /* gray-900 */
   }
 }
