@@ -121,7 +121,11 @@ export default function Index() {
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <img src="https://dsqvyt2qb7cgs.cloudfront.net/app/uploads/2025/01/wme-og.webp" alt="WME" className="h-10 w-auto object-contain" />
+              <img
+                src="https://dsqvyt2qb7cgs.cloudfront.net/app/uploads/2025/01/wme-og.webp"
+                alt="WME"
+                className="h-10 w-auto object-contain"
+              />
               <div>
                 <h1 className="text-lg font-display tracking-tight">WME</h1>
                 <p className="text-xs text-muted-foreground">Client Portal</p>
@@ -129,9 +133,18 @@ export default function Index() {
             </div>
 
             <nav className="hidden md:flex items-center gap-6 text-sm text-muted-foreground">
-              <Link to="/terms" className="hover:text-wme-gold">Terms</Link>
-              <Link to="/privacy" className="hover:text-wme-gold">Privacy</Link>
-              <Link to="/dashboard" className="text-sm px-3 py-1 rounded-md bg-wme-gold text-black font-semibold">Client Login</Link>
+              <Link to="/terms" className="hover:text-wme-gold">
+                Terms
+              </Link>
+              <Link to="/privacy" className="hover:text-wme-gold">
+                Privacy
+              </Link>
+              <Link
+                to="/dashboard"
+                className="text-sm px-3 py-1 rounded-md bg-wme-gold text-black font-semibold"
+              >
+                Client Login
+              </Link>
             </nav>
           </div>
         </div>
@@ -143,8 +156,13 @@ export default function Index() {
             <div className="p-8 bg-gradient-to-r from-white via-wme-light-gray to-white">
               <div className="flex items-start justify-between mb-6">
                 <div>
-                  <h2 className="text-3xl font-display font-bold">Access Your Client Portal</h2>
-                  <p className="text-sm text-muted-foreground mt-1">Secure access to event bookings, invoices and personal details.</p>
+                  <h2 className="text-3xl font-display font-bold">
+                    Access Your Client Portal
+                  </h2>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    Secure access to event bookings, invoices and personal
+                    details.
+                  </p>
                 </div>
                 <div className="hidden sm:flex items-center gap-3">
                   <Star className="w-6 h-6 text-wme-gold" />
@@ -153,7 +171,9 @@ export default function Index() {
 
               {showSuccess && (
                 <div className="p-4 bg-green-50 border border-green-200 rounded mb-4">
-                  <p className="text-green-700 text-sm">Your email was verified successfully.</p>
+                  <p className="text-green-700 text-sm">
+                    Your email was verified successfully.
+                  </p>
                 </div>
               )}
 
@@ -176,7 +196,12 @@ export default function Index() {
                 <TabsContent value="login" className="space-y-4">
                   <form onSubmit={handleLogin} className="space-y-4">
                     <div className="space-y-2">
-                      <Label htmlFor="bookingId" className="text-muted-foreground">Booking ID</Label>
+                      <Label
+                        htmlFor="bookingId"
+                        className="text-muted-foreground"
+                      >
+                        Booking ID
+                      </Label>
                       <div className="relative">
                         <Input
                           id="bookingId"
@@ -225,12 +250,19 @@ export default function Index() {
                 </TabsContent>
 
                 <TabsContent value="booking">
-                  <div className="text-sm text-muted-foreground">New booking flow coming soon.</div>
+                  <div className="text-sm text-muted-foreground">
+                    New booking flow coming soon.
+                  </div>
                 </TabsContent>
               </Tabs>
 
               <div className="text-center mt-6">
-                <p className="text-xs text-muted-foreground">By accessing your account, you agree to our <Link to="/terms" className="text-wme-gold hover:underline">Terms of Service</Link></p>
+                <p className="text-xs text-muted-foreground">
+                  By accessing your account, you agree to our{" "}
+                  <Link to="/terms" className="text-wme-gold hover:underline">
+                    Terms of Service
+                  </Link>
+                </p>
               </div>
             </div>
           </Card>

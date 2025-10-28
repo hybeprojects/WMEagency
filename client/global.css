@@ -23,34 +23,61 @@
   }
 
   @media (min-width: 768px) {
-    html { font-size: 17px; }
+    html {
+      font-size: 17px;
+    }
   }
 
   body {
-    font-family: var(--font-sans, Soehne, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial);
+    font-family: var(
+      --font-sans,
+      Soehne,
+      system-ui,
+      -apple-system,
+      "Segoe UI",
+      Roboto,
+      "Helvetica Neue",
+      Arial
+    );
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
-  .font-display { font-family: Rework Display, Soehne, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif; }
+  .font-display {
+    font-family:
+      Rework Display,
+      Soehne,
+      system-ui,
+      -apple-system,
+      "Segoe UI",
+      Roboto,
+      Arial,
+      sans-serif;
+  }
 
   /* Form controls larger on mobile for comfortable tap targets */
-  input, textarea, select, button {
+  input,
+  textarea,
+  select,
+  button {
     min-height: 44px;
     touch-action: manipulation;
   }
 
   /* Elevated card styles */
-  .card-elevated { box-shadow: 0 8px 32px rgba(2,6,23,0.08); border-radius: 1rem; }
+  .card-elevated {
+    box-shadow: 0 8px 32px rgba(2, 6, 23, 0.08);
+    border-radius: 1rem;
+  }
 
   /* Accessible focus ring */
   :focus {
     outline: none;
   }
   :focus-visible {
-    box-shadow: 0 0 0 4px rgba(99,102,241,0.12);
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.12);
     border-radius: 0.5rem;
   }
 }
