@@ -41,7 +41,9 @@ export default function AdminSettings() {
           <Card>
             <CardHeader>
               <CardTitle>Danger Zone</CardTitle>
-              <CardDescription>Administrative actions and logout.</CardDescription>
+              <CardDescription>
+                Administrative actions and logout.
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground mb-4">
@@ -66,7 +68,9 @@ export default function AdminSettings() {
             <CardContent>
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium mb-1">Site Title</label>
+                  <label className="block text-sm font-medium mb-1">
+                    Site Title
+                  </label>
                   <input
                     className="w-full rounded border px-3 py-2"
                     defaultValue={"WME Client Portal"}
@@ -74,7 +78,9 @@ export default function AdminSettings() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-1">Support Email</label>
+                  <label className="block text-sm font-medium mb-1">
+                    Support Email
+                  </label>
                   <input
                     className="w-full rounded border px-3 py-2"
                     defaultValue={"support@example.com"}
@@ -82,7 +88,13 @@ export default function AdminSettings() {
                 </div>
 
                 <div className="flex items-center gap-2">
-                  <Button onClick={() => { setSaving(true); setTimeout(() => setSaving(false), 700); }} disabled={saving}>
+                  <Button
+                    onClick={() => {
+                      setSaving(true);
+                      setTimeout(() => setSaving(false), 700);
+                    }}
+                    disabled={saving}
+                  >
                     {saving ? "Saving..." : "Save Changes"}
                   </Button>
                 </div>
@@ -93,7 +105,9 @@ export default function AdminSettings() {
           <Card>
             <CardHeader>
               <CardTitle>System</CardTitle>
-              <CardDescription>Check system health and admin utilities.</CardDescription>
+              <CardDescription>
+                Check system health and admin utilities.
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
@@ -102,7 +116,8 @@ export default function AdminSettings() {
                     setError(null);
                     try {
                       const res = await apiClient.getSystemHealth();
-                      if (!res.success) throw new Error(res.error || "Failed to fetch");
+                      if (!res.success)
+                        throw new Error(res.error || "Failed to fetch");
                       alert(JSON.stringify(res.data || res, null, 2));
                     } catch (err: any) {
                       setError(err?.message || "Failed to check system health");
